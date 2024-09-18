@@ -2,11 +2,14 @@ import dbconnect from "@/lib/dbConnect";
 import UserModel from "@/model/user";
 var jsonwebtoken = require('jsonwebtoken');
 
+export const runtime = 'nodejs'; // Correct usage in Next.js 13+
+
 export async function GET(request) {
     await dbconnect();
     try {
         
         const token = request.headers.get('Authorization');
+        // const token = request.headers.get('Authorization')?.split(' ')[1];
         if (!token) {
             return Response.json({ success: false, message: "Token not provided" }, { status: 400 });
         }

@@ -7,6 +7,7 @@ import { ChevronRight, CirclePlus, Earth } from 'lucide-react';
 import PasswordDataCard from '@/components/PasswordDataCard';
 import AddPassword from '@/components/AddPassword';
 
+
 const Page = () => {
   const router = useRouter();
   const [token, setToken] = useState();
@@ -70,13 +71,20 @@ const Page = () => {
   }
 
   useEffect(() => {
-    let TOKEN = localStorage.getItem("token");
-    if (!localStorage.getItem("token")) {
-      router.push("/login");
-    } else {
-      setToken(TOKEN);
-      getPwData(TOKEN);
+    console.log("this is window type : ", typeof window);
+    
+    if (typeof window != 'undefined') {
+      // Access localStorage here
+      let TOKEN = localStorage.getItem("token");
+      if (!localStorage.getItem("token")) {
+        router.push("/login");
+      } else {
+        setToken(TOKEN);
+        getPwData(TOKEN);
+      }
     }
+    
+    
   }, []);
 
   const updatePwDataArray = (pwd_id, newData) => {
@@ -97,7 +105,7 @@ const Page = () => {
 
       <PasswordDataCard pwd={pwd} setPwd={setPwd} PasswordDataCardVisibility={PasswordDataCardVisibility} setPasswordDataCardVisibility={setPasswordDataCardVisibility} deletePWData={deletePWData} token={token} updatePwDataArray={updatePwDataArray} getPwData={getPwData}/>
 
-      <AddPassword AddPasswordCardVisibility={AddPasswordCardVisibility} setAddPasswordCardVisibility={setAddPasswordCardVisibility} />
+      <AddPassword AddPasswordCardVisibility={AddPasswordCardVisibility} setAddPasswordCardVisibility={setAddPasswordCardVisibility} token={token}/>
 
       <div className='flex flex-col sm:border border-gray-200 rounded-xl mx-3 w-full max-w-[45rem] px-5 py-6'>
         <section className='flex justify-between items-center border-b pb-4'>

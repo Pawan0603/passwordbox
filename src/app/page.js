@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import Link from "next/link";
 import Btn1 from "@/components/myUi/Btn1/Btn1";
 import Btn2 from "@/components/myUi/Btn2/Btn2";
@@ -12,15 +11,18 @@ export default function Home() {
   const [AddPasswordCardVisibility, setAddPasswordCardVisibility] = useState(false);
 
   useEffect(() => {
-    let token = localStorage.getItem("token");
-    console.log(token)
-    setToken(token)
+    if (typeof window !== 'undefined') {
+      // Access localStorage here
+      const token = localStorage.getItem('token');
+      console.log(token)
+      setToken(token)
+    }
   }, []);
 
   return (
     <main className="flex flex-col items-center px-4 md:px-24 py-12">
       <h1 className="text-3xl md:text-5xl font-bold text-center"><span className="text-red-700">PasswordBox</span> is a password maneger</h1>
-      <p className="mt-3 md:mt-4 mb-7 text-base md:text-lg">"Unlock Peace of Mind with PasswordBox."</p>
+      <p className="mt-3 md:mt-4 mb-7 text-base md:text-lg">&quot;Unlock Peace of Mind with PasswordBox.&quot;</p>
 
       {Token !== null ? <>
         <Link className="mb-5" href={'/dashboard'}><Btn1 btnName={"Dashboard"} /></Link>

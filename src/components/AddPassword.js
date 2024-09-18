@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { useToast } from "@/components/ui/use-toast"
 
 const AddPassword = (props) => {
-    let { AddPasswordCardVisibility, setAddPasswordCardVisibility } = props;
+    let { AddPasswordCardVisibility, setAddPasswordCardVisibility, token } = props;
     const [showPassword, setShowPassword] = useState(false);
 
     const [sideName, setSideName] = useState("");
@@ -14,8 +14,6 @@ const AddPassword = (props) => {
     const [note, setNote] = useState("");
 
     const { toast } = useToast();
-
-    const token = localStorage.getItem("token");
 
     const closeCard = () => {
         setShowPassword(false)
