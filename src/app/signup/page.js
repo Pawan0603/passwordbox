@@ -16,6 +16,7 @@ import axios from "axios"
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from "next/navigation"
 import { LoaderCircle } from "lucide-react"
+import Navbar from "@/components/Navbar"
 
 
 
@@ -71,6 +72,8 @@ export default function SignupForm() {
     }
 
     return (
+        <>
+        <Navbar />
         <div className="flex items-center justify-center h-[calc(100vh-72px)]">
             <Card className="mx-auto max-w-sm">
                 <CardHeader>
@@ -122,5 +125,6 @@ export default function SignupForm() {
                 </CardContent>
             </Card>
         </div>
+        </>
     )
 }

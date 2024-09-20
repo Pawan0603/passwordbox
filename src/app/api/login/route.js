@@ -18,7 +18,7 @@ export async function POST(request){
 
         if(!isPasswordCorrect) return Response.json({ success: false, message: "Invalid password" }, { status: 400 });
 
-        var token = jwt.sign({ email: user.email }, process.env.jwtSecreat);
+        var token = jwt.sign({ email: user.email, name: user.name }, process.env.jwtSecreat);
     
         return Response.json({ success: true, message: "User logedIn successfully", token: token }, { status: 200 })
 

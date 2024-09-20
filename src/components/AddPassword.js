@@ -63,7 +63,7 @@ const AddPassword = (props) => {
     }
 
     return (
-        <div className={`absolute w-screen h-[calc(100vh-72px)] ${AddPasswordCardVisibility == true ? 'flex' : 'hidden'} justify-center bg-white z-10`}>
+        <div className={`absolute w-screen h-[calc(100vh-72px)] ${AddPasswordCardVisibility == true ? 'flex' : 'hidden'} justify-center bg-black/80 z-10`}>
             <div className='flex flex-col bg-white border rounded-2xl h-fit mx-3 w-full max-w-[45rem] py-6 px-5'>
                 <section className='flex flex-row justify-between mb-4'>
                     <p className='text-gray-400'>passwordbox.com</p>

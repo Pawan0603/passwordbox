@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation"
 import { useToast } from "@/components/ui/use-toast"
 import { LoaderCircle } from "lucide-react"
 import axios from "axios"
+import Navbar from "@/components/Navbar"
 
 export default function LoginForm() {
     const [email, setEmail] = useState("");
@@ -70,6 +71,8 @@ export default function LoginForm() {
     }
 
     return (
+        <>
+        <Navbar />
         <div className="flex items-center justify-center h-[calc(100vh-72px)]">
             <Card className="mx-auto max-w-sm">
                 <CardHeader>
@@ -113,5 +116,6 @@ export default function LoginForm() {
                 </CardContent>
             </Card>
         </div>
+        </>
     )
 }
