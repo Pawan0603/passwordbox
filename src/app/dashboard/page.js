@@ -418,9 +418,9 @@ export default function Dashboard() {
                 <ul className="space-y-2">
                   {filteredPasswords.map((password) => (
                     <li key={password._id} className="flex items-center justify-between p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">
-                      <div className="flex items-center">
-                        <Lock className="h-5 w-5 mr-2 text-primary dark:text-white" />
-                        <span>{password.sideName}</span>
+                      <div className="flex items-center overflow-auto">
+                        <Lock className="h-5 w-5 mr-2 text-primary dark:text-white " />
+                        <span className='overflow-auto'>{password.sideName}</span>
                       </div>
                       <Dialog>
                         <DialogTrigger asChild>
